@@ -1,0 +1,19 @@
+---
+# tasks file for server
+
+- name: Atualiza o cache apt de nosso servidor
+  apt: update_cache=yes cache_valid_time=3600
+
+- name: Instala os pacotes necessarios
+  apt: 
+   name="{{item}}"
+  vars:
+    item:
+    - apache2
+    - mysql-server
+    - php-mysql
+    - php7.2
+#    - libapache2-mode-php
+#    - php7-mcrypt vou omitir por enquanto esse pacote, pois parece nao ser mais suportado
+    - python-mysqldb
+    - libapache2-mod-php

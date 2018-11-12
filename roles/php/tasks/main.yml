@@ -1,0 +1,11 @@
+---
+# tasks file for php
+
+- name: Instala as extensões PHP necessarias
+  apt: update_cache=yes cache_valid_time=3600
+   name="{{item}}"
+  vars:
+    item:
+    - php-gd
+    - php-ssh2
+#    - libssh2-php
